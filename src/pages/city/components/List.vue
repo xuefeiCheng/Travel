@@ -1,0 +1,102 @@
+<template>
+  <div class="list">
+    <div class="area border-topbottom">
+      <div class="title">当前城市</div>
+      <ul class="button-list">
+        <li class="button-wrapper">
+          <span class="button active">北京</span>
+        </li>
+      </ul>
+    </div>
+    <div class="area border-topbottom">
+      <div class="title">热门城市</div>
+      <ul class="button-list">
+        <li class="button-wrapper">
+          <span class="button">北京</span>
+        </li>
+        <li class="button-wrapper">
+          <span class="button">上海</span></li>
+        <li class="button-wrapper">
+          <span class="button">杭州</span>
+        </li>
+        <li class="button-wrapper">
+          <span class="button">天津</span>
+        </li>
+      </ul>
+    </div>
+    <div class="area border-topbottom">
+      <div class="title">A</div>
+      <ul class="item-list">
+        <li class="item border-bottom">阿贝尔</li>
+        <li class="item border-bottom">阿贝尔</li>
+        <li class="item border-bottom">阿贝尔</li>
+        <li class="item border-bottom">阿贝尔</li>
+        <li class="item border-bottom">阿贝尔</li>
+      </ul>
+    </div>
+    <div class="area border-topbottom">
+      <div class="title">B</div>
+      <ul class="item-list">
+        <li class="item border-bottom">北京</li>
+        <li class="item border-bottom">北海道</li>
+        <li class="item border-bottom">北极</li>
+        <li class="item border-bottom">贝尔</li>
+        <li class="item border-bottom">贝尔</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CityList'
+}
+</script>
+
+<style scoped lang="stylus">
+  @import '~styles/variables.styl'
+  .border-topbottom
+    &:before
+      border-color: #ccc
+    &:after
+      border-color: #ccc
+  .border-bottom
+    &:before
+      border-color: #ccc
+  .active
+    border-color:$bgColor !important
+    color: $bgColor
+  .list
+  /* 设置 绝对定位 空出上面其他组件的高度，是本组件 高度为首屏剩余高度，不可拖拽，使用插件实现滚动，而不是依赖 浏览器默认的滚动条*/
+    overflow: hidden
+    position: absolute
+    top: 1.58rem
+    left: 0
+    right: 0
+    bottom: 0
+    .title
+      height: .44rem
+      line-height: .44rem
+      background: #eee
+      color: #666
+      font-size: .26rem
+      padding-left: .2rem
+    .button-list
+      padding: .1rem .6rem .1rem .1rem
+      overflow: hidden
+      .button-wrapper
+        float: left
+        width: 33.3%
+        .button
+          display: block
+          text-align: center
+          border: .02rem solid #ccc
+          padding: .1rem 0
+          border-radius: .06rem
+          margin: .1rem
+    .item-list
+      .item
+        padding-left: .2rem
+        line-height: .76rem
+        color: #666
+</style>
