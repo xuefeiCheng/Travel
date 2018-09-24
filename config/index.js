@@ -1,7 +1,7 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
-
+// proxyTable 是webpack提供的 配置接口代理
 const path = require('path')
 
 module.exports = {
@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api': {
+            target: 'http://localhost:8080',
+            //接口的域名
+            //secure: false 如果是https接口，需要配置
+            //changeOrigin: true 如果接口跨域，需要进行这个参数的配置
+            pathRewrite: {
+                '^/api': '/static/mock/'
+            }
+        }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

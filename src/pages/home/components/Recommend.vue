@@ -4,13 +4,13 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
-          <p class="item-title">{{item.itemTitle}}</p>
-          <p class="item-desc">{{item.itemDesc}}</p>
+          <p class="item-title">{{item.title}}</p>
+          <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
       </li>
@@ -21,25 +21,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/a3/a3924161475dee37a3.img.jpg_200x200_5ba00364.jpg',
-        itemTitle: '青岛海昌极地海洋世界',
-        itemDesc: '龙马精神与自然山水和温泉养生文化相结合'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201302/05/90f3de9e0f7ab800c8d65eac.jpg_200x200_b1122e44.jpg',
-        itemTitle: '奥帆中心',
-        itemDesc: '龙马精神与自然山水和温泉养生文化相结合'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201302/05/90f3de9e0f7ab800c8d65eac.jpg_200x200_b1122e44.jpg',
-        itemTitle: '青岛海昌极地海洋世界',
-        itemDesc: '龙马精神与自然山水和温泉养生文化相结合'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
