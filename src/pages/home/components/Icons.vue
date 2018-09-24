@@ -51,7 +51,7 @@ export default {
 
 <style scoped lang="stylus">
 /*设置swiper之后存在的问题，滑动区域只在上半部分，故需要更改css样式*/
-@import '~styles/varibles.styl'
+@import '~styles/variables.styl'
 @import '~styles/mixins.styl'
   .icons >>> .swiper-container
     height: 0

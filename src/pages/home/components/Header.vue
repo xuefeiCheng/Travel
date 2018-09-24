@@ -7,10 +7,12 @@
       <span class='iconfont'>&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class='header-right'>
-      {{this.city}}
-      <span class='iconfont arrow-icon'>&#xe64a;</span>
-    </div>
+    <router-link to="/city">
+      <div class='header-right'>
+        {{this.city}}
+        <span class='iconfont arrow-icon'>&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -28,13 +30,13 @@ export default {
 <!-- 高度为86px 1倍图高度应为43px 43/50=86/100=0.86rem-->
 <style scoped lang="stylus">
   /* @import '~@/assets/styles/varibles.styl' */
-  @import '~styles/varibles.styl'
+  @import '~styles/variables.styl'
   .header
     display: flex
-    height: .86rem
+    height: $headerHeight
+    line-height: $headerHeight
     background: $bgColor
     color: #fff
-    line-height: .86rem
     .header-left
       width: .64rem
       float: left
@@ -55,6 +57,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .arrow-icon
         font-size: .24rem
         margin-left: -.04rem
