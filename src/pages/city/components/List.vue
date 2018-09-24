@@ -1,55 +1,61 @@
 <template>
-  <div class="list">
-    <div class="area border-topbottom">
-      <div class="title">当前城市</div>
-      <ul class="button-list">
-        <li class="button-wrapper">
-          <span class="button active">北京</span>
-        </li>
-      </ul>
-    </div>
-    <div class="area border-topbottom">
-      <div class="title">热门城市</div>
-      <ul class="button-list">
-        <li class="button-wrapper">
-          <span class="button">北京</span>
-        </li>
-        <li class="button-wrapper">
-          <span class="button">上海</span></li>
-        <li class="button-wrapper">
-          <span class="button">杭州</span>
-        </li>
-        <li class="button-wrapper">
-          <span class="button">天津</span>
-        </li>
-      </ul>
-    </div>
-    <div class="area border-topbottom">
-      <div class="title">A</div>
-      <ul class="item-list">
-        <li class="item border-bottom">阿贝尔</li>
-        <li class="item border-bottom">阿贝尔</li>
-        <li class="item border-bottom">阿贝尔</li>
-        <li class="item border-bottom">阿贝尔</li>
-        <li class="item border-bottom">阿贝尔</li>
-      </ul>
-    </div>
-    <div class="area border-topbottom">
-      <div class="title">B</div>
-      <ul class="item-list">
-        <li class="item border-bottom">北京</li>
-        <li class="item border-bottom">北海道</li>
-        <li class="item border-bottom">北极</li>
-        <li class="item border-bottom">贝尔</li>
-        <li class="item border-bottom">贝尔</li>
-      </ul>
+  <div class="list" ref="wrapper">
+    <div>
+      <div class="area border-topbottom">
+        <div class="title">当前城市</div>
+        <ul class="button-list">
+          <li class="button-wrapper">
+            <span class="button active">北京</span>
+          </li>
+        </ul>
+      </div>
+      <div class="area border-topbottom">
+        <div class="title">热门城市</div>
+        <ul class="button-list">
+          <li class="button-wrapper">
+            <span class="button">北京</span>
+          </li>
+          <li class="button-wrapper">
+            <span class="button">上海</span></li>
+          <li class="button-wrapper">
+            <span class="button">杭州</span>
+          </li>
+          <li class="button-wrapper">
+            <span class="button">天津</span>
+          </li>
+        </ul>
+      </div>
+      <div class="area border-topbottom">
+        <div class="title">A</div>
+        <ul class="item-list">
+          <li class="item border-bottom">阿贝尔</li>
+          <li class="item border-bottom">阿贝尔</li>
+          <li class="item border-bottom">阿贝尔</li>
+          <li class="item border-bottom">阿贝尔</li>
+          <li class="item border-bottom">阿贝尔</li>
+        </ul>
+      </div>
+      <div class="area border-topbottom">
+        <div class="title">B</div>
+        <ul class="item-list">
+          <li class="item border-bottom">北京</li>
+          <li class="item border-bottom">北海道</li>
+          <li class="item border-bottom">北极</li>
+          <li class="item border-bottom">贝尔</li>
+          <li class="item border-bottom">贝尔</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-  name: 'CityList'
+  name: 'CityList',
+  mounted () {
+    this.scroll = new BScroll(this.$refs.wrapper)
+  }
 }
 </script>
 
@@ -75,8 +81,8 @@ export default {
     right: 0
     bottom: 0
     .title
-      height: .44rem
-      line-height: .44rem
+      height: .54rem
+      line-height: .54rem
       background: #eee
       color: #666
       font-size: .26rem
