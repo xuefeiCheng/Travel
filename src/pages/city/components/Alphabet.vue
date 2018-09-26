@@ -45,12 +45,14 @@ export default {
     },
     handleTouchMove (e) {
       // 手指触碰到结束 整个移动过程 实现 向父组件传递 letter ，同时父组件传递给list组件，实现 动态滚动
-      const startY = this.$refs['A'][0].offsetTop
-      const variablesY = e.touches[0].clientY - 79
-      const letterIndex = Math.floor((variablesY - startY) / 20)
-      // console.log(this.letters[letterIndex])
-      if (letterIndex >= 0 && letterIndex < this.letters.length) {
-        this.$emit('change', this.letters[letterIndex])
+      if (this.startStatus) {
+        const startY = this.$refs['A'][0].offsetTop
+        const variablesY = e.touches[0].clientY - 79
+        const letterIndex = Math.floor((variablesY - startY) / 20)
+        // console.log(this.letters[letterIndex])
+        if (letterIndex >= 0 && letterIndex < this.letters.length) {
+          this.$emit('change', this.letters[letterIndex])
+        }
       }
     },
     handleTouchEnd () {
