@@ -12,37 +12,26 @@
       <div class="area border-topbottom">
         <div class="title">热门城市</div>
         <ul class="button-list">
-          <li class="button-wrapper">
-            <span class="button">北京</span>
-          </li>
-          <li class="button-wrapper">
-            <span class="button">上海</span></li>
-          <li class="button-wrapper">
-            <span class="button">杭州</span>
-          </li>
-          <li class="button-wrapper">
-            <span class="button">天津</span>
+          <li
+            class="button-wrapper"
+            v-for="hotcity of hotCities"
+            :key="hotcity.id"
+          >
+            <span class="button">{{hotcity.name}}</span>
           </li>
         </ul>
       </div>
-      <div class="area border-topbottom">
-        <div class="title">A</div>
+      <div
+       class="area border-topbottom"
+       v-for="(city, key) of cities"
+       :key="key">
+        <div class="title">{{key}}</div>
         <ul class="item-list">
-          <li class="item border-bottom">阿贝尔</li>
-          <li class="item border-bottom">阿贝尔</li>
-          <li class="item border-bottom">阿贝尔</li>
-          <li class="item border-bottom">阿贝尔</li>
-          <li class="item border-bottom">阿贝尔</li>
-        </ul>
-      </div>
-      <div class="area border-topbottom">
-        <div class="title">B</div>
-        <ul class="item-list">
-          <li class="item border-bottom">北京</li>
-          <li class="item border-bottom">北海道</li>
-          <li class="item border-bottom">北极</li>
-          <li class="item border-bottom">贝尔</li>
-          <li class="item border-bottom">贝尔</li>
+          <li
+            v-for="innerC of city"
+            :key="innerC.id"
+            class="item border-bottom"
+          >{{innerC.name}}</li>
         </ul>
       </div>
     </div>
@@ -53,6 +42,10 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hotCities: Array,
+    cities: Object
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
   }
