@@ -23,8 +23,13 @@ export default {
   },
   data () {
     return {
-      startStatus: false
+      startStatus: false,
+      startY: 0,
+      timer: null
     }
+  },
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
   },
   computed: {
     // 本组件只需要 字母表，故将对象 后期处理为数组
@@ -44,15 +49,20 @@ export default {
       this.startStatus = true
     },
     handleTouchMove (e) {
-      // 手指触碰到结束 整个移动过程 实现 向父组件传递 letter ，同时父组件传递给list组件，实现 动态滚动
+      // 手指触碰到结束 整个移动过程 实现 向父组件传递 letter ，同时父组件传递给list组件，实现动态滚动
       if (this.startStatus) {
-        const startY = this.$refs['A'][0].offsetTop
-        const variablesY = e.touches[0].clientY - 79
-        const letterIndex = Math.floor((variablesY - startY) / 20)
-        // console.log(this.letters[letterIndex])
-        if (letterIndex >= 0 && letterIndex < this.letters.length) {
-          this.$emit('change', this.letters[letterIndex])
+      // 截流 提升性能
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
+        setTimeout(() => {
+          const variablesY = e.touches[0].clientY - 79
+          const letterIndex = Math.floor((variablesY - this.startY) / 20)
+          // console.log(this.letters[letterIndex])
+          if (letterIndex >= 0 && letterIndex < this.letters.length) {
+            this.$emit('change', this.letters[letterIndex])
+          }
+        }, 16)
       }
     },
     handleTouchEnd () {
