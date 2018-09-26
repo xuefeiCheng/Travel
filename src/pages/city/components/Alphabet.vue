@@ -55,7 +55,7 @@ export default {
         if (this.timer) {
           clearTimeout(this.timer)
         }
-        setTimeout(() => {
+        this.timer = setTimeout(() => {
           const variablesY = e.touches[0].clientY - 79
           const letterIndex = Math.floor((variablesY - this.startY) / 20)
           // console.log(this.letters[letterIndex])
