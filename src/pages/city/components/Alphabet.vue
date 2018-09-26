@@ -49,7 +49,9 @@ export default {
       const variablesY = e.touches[0].clientY - 79
       const letterIndex = Math.floor((variablesY - startY) / 20)
       // console.log(this.letters[letterIndex])
-      this.$emit('change', this.letters[letterIndex])
+      if (letterIndex >= 0 && letterIndex < this.letters.length) {
+        this.$emit('change', this.letters[letterIndex])
+      }
     },
     handleTouchEnd () {
       this.startStatus = false
