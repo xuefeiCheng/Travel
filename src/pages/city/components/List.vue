@@ -56,6 +56,7 @@ export default {
     letter () {
       // console.log(this.$refs[this.letter][0])
       // better-scroll提供一个方法,可以跳转到指定元素位置
+      // 必须为dom元素
       this.scroll.scrollToElement(this.$refs[this.letter][0])
     }
   }
