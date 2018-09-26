@@ -44,10 +44,16 @@ export default {
   name: 'CityList',
   props: {
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      console.log(this.letter)
+    }
   }
 }
 </script>
