@@ -24,7 +24,9 @@
       <div
        class="area border-topbottom"
        v-for="(city, key) of cities"
-       :key="key">
+       :key="key"
+       :ref="key"
+      >
         <div class="title">{{key}}</div>
         <ul class="item-list">
           <li
@@ -52,7 +54,9 @@ export default {
   },
   watch: {
     letter () {
-      console.log(this.letter)
+      // console.log(this.$refs[this.letter][0])
+      // better-scroll提供一个方法,可以跳转到指定元素位置
+      this.scroll.scrollToElement(this.$refs[this.letter][0])
     }
   }
 }
