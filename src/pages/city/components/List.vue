@@ -5,7 +5,7 @@
         <div class="title">当前城市</div>
         <ul class="button-list">
           <li class="button-wrapper">
-            <span class="button active">北京</span>
+            <span class="button active">{{this.$store.state.city}}</span>
           </li>
         </ul>
       </div>
@@ -16,6 +16,7 @@
             class="button-wrapper"
             v-for="hotcity of hotCities"
             :key="hotcity.id"
+            @click="handleCityClick(hotcity.name)"
           >
             <span class="button">{{hotcity.name}}</span>
           </li>
@@ -33,7 +34,10 @@
             v-for="innerC of city"
             :key="innerC.id"
             class="item border-bottom"
-          >{{innerC.name}}</li>
+            @click="handleCityClick(innerC.name)"
+          >
+            {{innerC.name}}
+          </li>
         </ul>
       </div>
     </div>
@@ -58,6 +62,14 @@ export default {
       // better-scroll提供一个方法,可以跳转到指定元素位置
       // 必须为dom元素
       this.scroll.scrollToElement(this.$refs[this.letter][0])
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+    // 一般异步操作 使用dispatch 调用action
+      // this.$store.dispatch('changeCity', city)
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   }
 }
