@@ -5,7 +5,7 @@
         <div class="title">当前城市</div>
         <ul class="button-list">
           <li class="button-wrapper">
-            <span class="button active">{{this.city}}</span>
+            <span class="button active">{{this.currentCity}}</span>
           </li>
         </ul>
       </div>
@@ -55,7 +55,9 @@ export default {
     letter: String
   },
   computed: {
-    ...mapState(['city'])
+    ...mapState({
+      currentCity: 'city'
+    })
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
