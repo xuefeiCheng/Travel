@@ -46,7 +46,7 @@
 
 <script>
 import BScroll from 'better-scroll'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -74,9 +74,11 @@ export default {
     handleCityClick (city) {
     // 一般异步操作 使用dispatch 调用action
       // this.$store.dispatch('changeCity', city)
-      this.$store.commit('changeCity', city)
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>
