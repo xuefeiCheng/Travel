@@ -61,7 +61,7 @@ export default{
       background: #666
       height: 0
       width: 100%
-      padding-bottom: 66.625%
+      padding-bottom: 100%
       .gallery-img
         width: 100%
       .swiper-pagination-fraction

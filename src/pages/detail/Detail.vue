@@ -30,6 +30,9 @@ export default{
   mounted () {
     this.getInfo()
   },
+  activated () {
+    this.getInfo()
+  },
   methods: {
     getInfo () {
       // axios.get('/api/detail.json?id=' + this.$route.params.id)

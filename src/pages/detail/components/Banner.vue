@@ -6,7 +6,7 @@
         <div class="banner-title">{{data.sightName}}</div>
         <div class="banner-num">
           <span class='iconfont banner-icon'>&#xe691;</span>
-          119
+          {{imgnum}}
         </div>
       </div>
     </div>
@@ -24,6 +24,17 @@ export default{
   name: 'DetailBanner',
   props: {
     data: Object
+  },
+  computed: {
+    imgnum () {
+      let len = 0
+      if (this.data.gallaryImgs) {
+        len = this.data.gallaryImgs.length
+      } else {
+        len = 0
+      }
+      return len
+    }
   },
   data () {
     return {
