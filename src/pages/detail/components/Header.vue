@@ -35,8 +35,13 @@ export default{
   activated () {
     window.addEventListener('scroll', this.getScrollTop)
   },
+  deactivated () {
+    // 对全局事件 的解绑
+    window.removeEventListener('scroll', this.getScrollTop)
+  },
   methods: {
     getScrollTop () {
+      // console.log('hhh')
       const top = document.documentElement.scrollTop
       if (top > 60) {
         let opacity = top / 140
