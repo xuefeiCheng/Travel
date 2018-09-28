@@ -13,7 +13,7 @@
       v-show="!isShow"
       :style="opacityStyle"
     >
-      图片详情
+      {{sightName}}
       <router-link to="/">
         <div class='iconfont fixed-back'>&#xe624;</div>
       </router-link>
@@ -24,6 +24,9 @@
 <script>
 export default{
   name: 'DetailHeader',
+  props: {
+    sightName: String
+  },
   data () {
     return {
       isShow: true,
@@ -71,6 +74,7 @@ export default{
     .abs-back
       color: #fff
   .fixed
+    z-index: 2
     position: fixed
     top: 0
     left: 0

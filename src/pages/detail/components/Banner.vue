@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="banner" @click="handleGalleryShow">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1707/a3/a3924161475dee37a3.img.jpg_600x330_67fe57ba.jpg" />
+      <img class="banner-img" :src="data.bannerImg" />
       <div class="banner-info">
-        <div class="banner-title">青岛海昌极地海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{data.sightName}}</div>
         <div class="banner-num">
           <span class='iconfont banner-icon'>&#xe691;</span>
           119
@@ -11,7 +11,7 @@
       </div>
     </div>
     <common-gallery
-      :imgs="imges"
+      :imgs="data.gallaryImgs"
       v-show="galleryShow"
       @close="handleGalleryShow"
     ></common-gallery>
@@ -22,10 +22,12 @@
 import CommonGallery from 'common/gallery/Gallery'
 export default{
   name: 'DetailBanner',
+  props: {
+    data: Object
+  },
   data () {
     return {
-      galleryShow: false,
-      imges: ['http://img1.qunarzz.com/sight/p0/1707/cf/cf12a7d0e1b1bfe9a3.img.jpg_r_800x800_04f4fac7.jpg', 'http://img1.qunarzz.com/sight/p0/1707/a6/a626f82baf012026a3.img.jpg_r_800x800_a4945191.jpg']
+      galleryShow: false
     }
   },
   methods: {
