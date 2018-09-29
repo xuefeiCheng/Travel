@@ -45,7 +45,8 @@ export default{
   methods: {
     getScrollTop () {
       // console.log('hhh')
-      const top = document.documentElement.scrollTop
+      // 浏览器兼容
+      const top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
